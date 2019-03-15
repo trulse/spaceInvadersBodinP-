@@ -1,2 +1,2 @@
-# spaceInvadersBodinP-
-Spaceinvaders made by bodin :smile emoji:
+# spaceInvadersBodin
+Spaceinvaders made by bodinVGS in Bodø 
