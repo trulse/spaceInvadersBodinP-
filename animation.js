@@ -61,20 +61,20 @@ function draw(){
 
         for(let i = 0; i < enemyArray.length; i++){
             for(let j = 0; j < enemyArray[i].length; j++){
-                if(hitboxX(enemyArray[i][j].x, (enemyArray[i][j].x + sizeEnemy), player.playerX, (player.playerX + 25),
-                enemyArray[i][j].y, (enemyArray[i][j].y + sizeEnemy/1.25), player.playerY, (player.playerY + 15)) && enemyArray[i][j].size > 0){
+                if(hitbox(enemyArray[i][j].x, (enemyArray[i][j].x + sizeEnemy), player.playerX, (player.playerX + 25)) &&
+                hitbox(enemyArray[i][j].y, (enemyArray[i][j].y + sizeEnemy/1.25), player.playerY, (player.playerY + 15)) && enemyArray[i][j].size > 0){
                     noLoop();
                 }
                 for(let b = 0; b < playerBullet.length; b++){
-                            if(hitboxX(enemyArray[i][j].x, (enemyArray[i][j].x + sizeEnemy), playerBullet[b].x, (playerBullet[b].x + playerBullet.size/6),
-                            enemyArray[i][j].y, (enemyArray[i][j].y + sizeEnemy/1.25), playerBullet[b].y, playerBullet[b].y + sizeEnemy/1.5) && enemyArray[i][j].size > 0){
+                            if(hitbox(enemyArray[i][j].x, (enemyArray[i][j].x + sizeEnemy), playerBullet[b].x, (playerBullet[b].x + playerBullet.size/6) &&
+                            hitbox(enemyArray[i][j].y, (enemyArray[i][j].y + sizeEnemy/1.25), playerBullet[b].y, playerBullet[b].y + sizeEnemy/1.5)) && enemyArray[i][j].size > 0){
                                 enemyArray[i][j].size = 0;
                                 playerBullet.splice(b,1);
                                 amountOfBullets += 5;
                             }
                             for(let n = 0; n < bulletArray.length; n++){
-                                if(hitboxX(bulletArray[n].x, (bulletArray[n].x + sizeEnemy/6), player.playerX, (player.playerX + 25),
-                                bulletArray[n].y, (enemyArray[i][j].y + sizeEnemy/1.25), player.playerY, (player.playerY + 15)) && enemyArray[i][j].size > 0){
+                                if(hitbox(bulletArray[n].x, (bulletArray[n].x + sizeEnemy/6), player.playerX, (player.playerX + 25)) &&
+                                hitbox(bulletArray[n].y, (enemyArray[i][j].y + sizeEnemy/1.25), player.playerY, (player.playerY + 15)) && enemyArray[i][j].size > 0){
                                     noLoop();
                             }
                         }
@@ -241,29 +241,8 @@ function showEnemies(){
     }
 }
 
-
-function hitboxX(enX,enXStop,buX,buXStop, enY,enYStop, buY, buYStop){
-        if((buX < enXStop && buX > enX) || (buXStop > enX && buXStop < enXStop)){
-            if(hitboxY(enY, enYStop, buY, buYStop)){
-                return true;
-        }
-    }
-    else{
-        return false;
-    }
-} 
-
-function hitboxY(enY,enYStop, buY, buYStop){
-    if((buY < enYStop && buY > enY) || (buY < enY && buYStop < enYStop)){
-        return true;
-    }
-    else{
-        return false;
-    }
-}
-
-func hitbox(a,b,c,d){
-    iif((c < b && c > a) || (b < c && d < b)){
+function hitbox(a,b,c,d){
+    if((c < b && c > a) || (a < d && b > d)){
         return true;
     }
     else{
