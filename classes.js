@@ -8,8 +8,9 @@ class Enemy {
 }
 
     show(){
-        fill(255);
+        fill(0);
         rect(this.x, this.y, this.size, this.size/1.25);  // this.size/4 //
+        image(enemybilde, this.x,this.y, this.size, this.size/1.25);
     }
 }
 
@@ -23,6 +24,7 @@ class Bullet{
     show(){
         fill(150,20,20);
         rect(this.x+(sizeEnemy/2-(this.size/8)), this.y, this.size/6, this.size/1.5);
+
     }
 }
 
@@ -59,6 +61,7 @@ class Player {
             let playerY = this.playerY;
             rect(playerX, playerY, this.playerWidth, this.playerHeight);
             fill(255);
+            image(playerbilde, this.playerX,this.playerY, this.playerWidth, this.playerHeight);
         }
 
 

@@ -1,0 +1,9 @@
+Spillerens bevegeleser styres med piltastene. For å skyte bruker man SPACEBAR
+
+Man vinner om man kommer til level 3 i spillet (klarer 3 waves). 
+Da spilles det musikk (for å vise bruken av p5.sound)
+
+Vanskelighetsgrad kan enkelt justeres ved enkel endring av variabler øverst i animation.js
+Bilder på enemy og player kan også enkelt byttes ut ved å legge til nye bilder i mappen 
+for så å endre filnavnet på bilder i setup til tilsvarende i mappen.
+
